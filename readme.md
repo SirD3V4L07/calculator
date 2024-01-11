@@ -38,10 +38,12 @@ Add keyboard support! You might run into an issue where keys such as (/) might c
 
 TO DO:
 
-1) Create a function for each different operation - Takes 3 parameters: 2 operands and 1 operator
+X 1) Create a function for each different operation - Takes 3 parameters: 2 operands and 1 operator
 2) Create variables to handle operators and operands and display them on screen when buttons are pressed
-    2.1) Create array to store input data 
-    2.2) Send data to array when each button is pressed
+    X 2.1) Create array to store input data 
+    X 2.2) Send data to array when each button is pressed
     2.3) Display array data on screen
 3) Create function for clear button
-4) Create a function that takes in user input and calls the required function to perform the necessary calculations when "equals" is pressed
+4) Add zero button which I forgot
+5) Create a function that takes in user input and calls the required function to perform the necessary calculations when "equals" is pressed
+    5.1) Calculations should be done 2 operands at a time, from left to right
