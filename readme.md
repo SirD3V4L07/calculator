@@ -40,5 +40,8 @@ TO DO:
 
 1) Create a function for each different operation - Takes 3 parameters: 2 operands and 1 operator
 2) Create variables to handle operators and operands and display them on screen when buttons are pressed
+    2.1) Create array to store input data 
+    2.2) Send data to array when each button is pressed
+    2.3) Display array data on screen
 3) Create function for clear button
 4) Create a function that takes in user input and calls the required function to perform the necessary calculations when "equals" is pressed
