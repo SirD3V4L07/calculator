@@ -99,9 +99,24 @@ function buttonClear() {
     updateDisplay();
 }
 
+function buttonEquals(inputs) {
+    /**
+     * 1: Loop through the input array
+     * When an operator is found, calculate the operands surrounding the operator, using that operator by using if statements
+     * Loop through the array several times until no operator can be found, which means only one number is left which is the result
+     * Display the result on the display
+     * Find a way to clean the input array after this, while still displaying the result on screen
+     */
+
+    for (let i = 0; i < input.length; i++) {
+        
+    }
+}
+
 
 function updateDisplay() {
     // Show typed content on screen 
     let calcDisplay = document.getElementById("display");
     calcDisplay.innerText = input.join(" ");
 }
+
