@@ -101,16 +101,65 @@ function buttonClear() {
 
 function buttonEquals(inputs) {
     /**
-     * 1: Loop through the input array
-     * When an operator is found, calculate the operands surrounding the operator, using that operator by using if statements
-     * Loop through the array several times until no operator can be found, which means only one number is left which is the result
+     * Loop through the input array
+     * Store numbers in a single array index to make array handling easier, instead of one digit per index
+     * Store operators in one index as well, per operator
+     * After getting the array ready for handling, loop through it
+     * Every time an operator is found, make if statements for each possible operator
+     * Inside the if statements, grab the number before and after the operator, and operate them
+     * Delete the indexes with the operated numbers, leaving only the new number
+     * The loop goes on, performing calculations on each operator found until no operators are found and a single number is returned
+     * as the result
      * Display the result on the display
      * Find a way to clean the input array after this, while still displaying the result on screen
      */
 
-    for (let i = 0; i < input.length; i++) {
+    let inputsHandler = [];
+    let handlerIterator = 0;
+
+    for (let j = 0; j < inputs.length; j++) {
+        /**
+         * Store input numbers into single array indexes rather than
+         * one array index for each digit, to make array handling easier
+         * in the calculation algorithm
+         */
         
+        
+        if ((inputs[j] == "+") ||
+            (inputs[j] == "-") ||
+            (inputs[j] == "/") ||
+            (inputs[j] == "*")) {
+                handlerIterator += 1;
+                inputsHandler[handlerIterator] = inputs[j];
+                handlerIterator += 1;
+            }
+        
+        inputsHandler[handlerIterator] += inputs[j];
+        
+            
+
     }
+    
+    console.log(inputsHandler);
+
+    /*
+    for (let i = 0; i < inputsHandler.length; i++) {
+        // Check for operators
+        if (inputs[i] == "+") {
+            console.log("Detected + operator.");
+            
+        }
+        if (inputs[i] == "-") {
+            console.log("Detected - operator.");
+        }
+        if (inputs[i] == "/") {
+            console.log("Detected / operator.");
+        }
+        if (inputs[i] == "*") {
+            console.log("Detected * operator.");
+        }
+    }
+    */
 }
 
 
