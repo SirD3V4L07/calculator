@@ -116,11 +116,15 @@ function buttonEquals(inputs) {
 
     let inputsHandler = [];
     let handlerIterator = 0;
+    /**
+     * Here I must define the first element of the handler array, or it will get confused
+     * with "undefined"
+     */
+    inputsHandler[0] = inputs[0];
 
 
     console.log("inputsHandler before loop: " + inputsHandler);
     console.log("inputs before loop: " + inputs);
-    console.log("input before loop: " + input);
 
     for (let j = 0; j < inputs.length; j++) {
         /**
@@ -138,10 +142,10 @@ function buttonEquals(inputs) {
                 handlerIterator += 1;
             }
         
-        console.log("Inputs[j]: " + inputs[j]);
-        console.log("Testing if is number: " + (inputs[j] + inputs[j]));
-        console.log("Type of inputs[j]: " + typeof inputs[j]);
+        console.log("inputsHandler[j]: " + inputsHandler[j]);
+        console.log("Type of inputsHandler[j]: " + typeof inputsHandler[j]);
         inputsHandler[handlerIterator] = inputsHandler[handlerIterator] + inputs[j];
+       // inputsHandler[handlerIterator] = inputsHandler[handlerIterator].concat(inputs[j]);
         
             
 
