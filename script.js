@@ -117,13 +117,17 @@ function buttonEquals(inputs) {
     let inputsHandler = [];
     let handlerIterator = 0;
 
+
+    console.log("inputsHandler before loop: " + inputsHandler);
+    console.log("inputs before loop: " + inputs);
+    console.log("input before loop: " + input);
+
     for (let j = 0; j < inputs.length; j++) {
         /**
          * Store input numbers into single array indexes rather than
          * one array index for each digit, to make array handling easier
          * in the calculation algorithm
          */
-        
         
         if ((inputs[j] == "+") ||
             (inputs[j] == "-") ||
@@ -134,13 +138,16 @@ function buttonEquals(inputs) {
                 handlerIterator += 1;
             }
         
-        inputsHandler[handlerIterator] += inputs[j];
+        console.log("Inputs[j]: " + inputs[j]);
+        console.log("Testing if is number: " + (inputs[j] + inputs[j]));
+        console.log("Type of inputs[j]: " + typeof inputs[j]);
+        inputsHandler[handlerIterator] = inputsHandler[handlerIterator] + inputs[j];
         
             
 
     }
-    
-    console.log(inputsHandler);
+    console.log("inputsHandler after loop: " + inputsHandler);
+    console.log("inputs after loop: " + inputs);
 
     /*
     for (let i = 0; i < inputsHandler.length; i++) {
