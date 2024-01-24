@@ -116,22 +116,13 @@ function buttonEquals(inputs) {
 
     let inputsHandler = [];
     let handlerIterator = 0;
+
     /**
-     * Here I must define the first element of the handler array, or it will get confused
-     * with "undefined"
+     * Store input numbers into single array indexes rather than
+     * one array index for each digit, to make array handling easier
+     * in the calculation algorithm
      */
-    inputsHandler[0] = inputs[0];
-
-
-    console.log("inputsHandler before loop: " + inputsHandler);
-    console.log("inputs before loop: " + inputs);
-
     for (let j = 0; j < inputs.length; j++) {
-        /**
-         * Store input numbers into single array indexes rather than
-         * one array index for each digit, to make array handling easier
-         * in the calculation algorithm
-         */
         
         if ((inputs[j] == "+") ||
             (inputs[j] == "-") ||
@@ -140,18 +131,23 @@ function buttonEquals(inputs) {
                 handlerIterator += 1;
                 inputsHandler[handlerIterator] = inputs[j];
                 handlerIterator += 1;
+                j += 1;
             }
-        
-        console.log("inputsHandler[j]: " + inputsHandler[j]);
-        console.log("Type of inputsHandler[j]: " + typeof inputsHandler[j]);
-        inputsHandler[handlerIterator] = inputsHandler[handlerIterator] + inputs[j];
-       // inputsHandler[handlerIterator] = inputsHandler[handlerIterator].concat(inputs[j]);
-        
-            
+
+        if (inputsHandler[handlerIterator] == undefined) {
+            inputsHandler[handlerIterator] = String(inputs[j]);
+        } else {
+            inputsHandler[handlerIterator] = inputsHandler[handlerIterator].concat(inputs[j]);
+        }
 
     }
-    console.log("inputsHandler after loop: " + inputsHandler);
-    console.log("inputs after loop: " + inputs);
+
+    console.log("Result: " + inputsHandler);
+
+
+    /**
+     * Perform the calculations from left to right
+     */
 
     /*
     for (let i = 0; i < inputsHandler.length; i++) {
