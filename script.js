@@ -124,7 +124,7 @@ function buttonEquals(inputs) {
      */
     for (let j = 0; j < inputs.length; j++) {
         
-        if ((inputs[j] == "+") ||
+        if ((inputsHandler[j] == "+") ||
             (inputs[j] == "-") ||
             (inputs[j] == "/") ||
             (inputs[j] == "*")) {
@@ -149,24 +149,29 @@ function buttonEquals(inputs) {
      * Perform the calculations from left to right
      */
 
-    /*
+    console.log("Entering calculations phase.");
     for (let i = 0; i < inputsHandler.length; i++) {
         // Check for operators
-        if (inputs[i] == "+") {
+        if (inputsHandler[i] == "+") {
             console.log("Detected + operator.");
-            
+            inputsHandler[i] = parseInt(inputsHandler[i-1]) + parseInt(inputsHandler[i+1]);
         }
-        if (inputs[i] == "-") {
+        if (inputsHandler[i] == "-") {
             console.log("Detected - operator.");
+            inputsHandler[i] = inputsHandler[i-1] - inputsHandler[i+1];
         }
-        if (inputs[i] == "/") {
+        if (inputsHandler[i] == "/") {
             console.log("Detected / operator.");
+            inputsHandler[i] = inputsHandler[i-1] / inputsHandler[i+1];
         }
-        if (inputs[i] == "*") {
+        if (inputsHandler[i] == "*") {
             console.log("Detected * operator.");
+            inputsHandler[i] = inputsHandler[i-1] * inputsHandler[i+1];
         }
     }
-    */
+
+    console.log("Result: " + inputsHandler);
+    
 }
 
 
