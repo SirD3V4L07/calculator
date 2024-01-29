@@ -179,6 +179,9 @@ function buttonEquals(inputs) {
     /**Show result on display */
     let calcDisplay = document.getElementById("display");
     calcDisplay.innerText = inputsHandler;
+
+    /**Clean input array */
+    input = [];
     
 }
 
