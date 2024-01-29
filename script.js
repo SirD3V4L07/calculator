@@ -124,7 +124,7 @@ function buttonEquals(inputs) {
      */
     for (let j = 0; j < inputs.length; j++) {
         
-        if ((inputsHandler[j] == "+") ||
+        if ((inputs[j] == "+") ||
             (inputs[j] == "-") ||
             (inputs[j] == "/") ||
             (inputs[j] == "*")) {
@@ -142,35 +142,43 @@ function buttonEquals(inputs) {
 
     }
 
-    console.log("Result: " + inputsHandler);
-
 
     /**
      * Perform the calculations from left to right
      */
-
-    console.log("Entering calculations phase.");
-    for (let i = 0; i < inputsHandler.length; i++) {
-        // Check for operators
-        if (inputsHandler[i] == "+") {
-            console.log("Detected + operator.");
-            inputsHandler[i] = parseInt(inputsHandler[i-1]) + parseInt(inputsHandler[i+1]);
-        }
-        if (inputsHandler[i] == "-") {
-            console.log("Detected - operator.");
-            inputsHandler[i] = inputsHandler[i-1] - inputsHandler[i+1];
-        }
-        if (inputsHandler[i] == "/") {
-            console.log("Detected / operator.");
-            inputsHandler[i] = inputsHandler[i-1] / inputsHandler[i+1];
-        }
-        if (inputsHandler[i] == "*") {
-            console.log("Detected * operator.");
-            inputsHandler[i] = inputsHandler[i-1] * inputsHandler[i+1];
+    while (inputsHandler.length > 1) {
+        for (let i = 0; i < inputsHandler.length; i++) {
+            // Check for operators
+            if (inputsHandler[i] == "+") {
+                console.log("Detected + operator.");
+                inputsHandler[i-1] = parseInt(inputsHandler[i-1]) + parseInt(inputsHandler[i+1]);
+                inputsHandler.splice(i+1,1);
+                inputsHandler.splice(i,1);
+            }
+            if (inputsHandler[i] == "-") {
+                console.log("Detected - operator.");
+                inputsHandler[i-1] = parseInt(inputsHandler[i-1]) - parseInt(inputsHandler[i+1]);
+                inputsHandler.splice(i+1,1);
+                inputsHandler.splice(i,1);
+            }
+            if (inputsHandler[i] == "/") {
+                console.log("Detected / operator.");
+                inputsHandler[i-1] = parseInt(inputsHandler[i-1]) / parseInt(inputsHandler[i+1]);
+                inputsHandler.splice(i+1,1);
+                inputsHandler.splice(i,1);
+            }
+            if (inputsHandler[i] == "*") {
+                console.log("Detected * operator.");
+                inputsHandler[i-1] = parseInt(inputsHandler[i-1]) * parseInt(inputsHandler[i+1]);
+                inputsHandler.splice(i+1,1);
+                inputsHandler.splice(i,1);
+            }
         }
     }
 
-    console.log("Result: " + inputsHandler);
+    /**Show result on display */
+    let calcDisplay = document.getElementById("display");
+    calcDisplay.innerText = inputsHandler;
     
 }
 
